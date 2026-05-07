@@ -49,7 +49,7 @@ This command finds all .java in the project and compiles them into an out folder
 
 ![alt text](image-4.png)
 
-# Finally run the code in Powershell 
+# Run the code in Powershell 
 3. java -cp out core.Main 
 
 ![alt text](image-5.png)
