@@ -1,3 +1,7 @@
+//Encapsulation 
+
+// Package declaration for hardware classes 
+
 package hardware;
 
 public class Coin{

@@ -102,7 +102,6 @@ public class VendingMachineGUI extends JFrame{
         JPanel moneyPanel = new JPanel(new GridLayout(0, 1));
         moneyPanel.setBorder(BorderFactory.createTitledBorder("Money"));
 
-        addMoney(moneyPanel, "$1.00", 1.00);
         addMoney(moneyPanel, "$0.50", 0.50);
         addMoney(moneyPanel, "$0.25", 0.25);
         addMoney(moneyPanel, "$0.10", 0.10);
