@@ -3,7 +3,7 @@ package state;
 import core.VendingMachine;
 import hardware.Coin;
 
-public class PRocessingPaymentState implements VendingStat{
+public class ProcessingPaymentState implements VendingState{
     
     private VendingMachine machine;
 
@@ -27,7 +27,7 @@ public class PRocessingPaymentState implements VendingStat{
 
     public void cancel(){
         System.out.println("Cancelled");
-        machine.rest();
+        machine.reset();
         machine.setState(new ReadyState(machine));
     }
 

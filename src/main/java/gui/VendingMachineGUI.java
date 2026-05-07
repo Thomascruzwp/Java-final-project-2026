@@ -31,7 +31,7 @@ public class VendingMachineGUI extends JFrame{
     public VendingMachineGUI(){
         register("A2", "Diet Coke", 1.85);
         register("A3", "pepsi", 1.65);
-        register("A4", "Sprite", 1.170);
+        register("A4", "Sprite", 1.70);
         register("A5", "Fanta Orange", 1.80);
         register("A6", "Dr Pepper", 1.90);
         register("A7", "Water Bottle", 1.00);
@@ -55,7 +55,7 @@ public class VendingMachineGUI extends JFrame{
         register("C5", "Skittles", 1.90);
 
         register("D1", "Oreo Cookies", 2.10);
-        register("D2", "Granola Bar", 1.40;
+        register("D2", "Granola Bar", 1.40);
         register("D3", "Trail Mix", 2.30);
         register("D4", "Salted Peanuts", 1.20);
         register("D5", "Salt Crackers", 1.25);
@@ -65,17 +65,17 @@ public class VendingMachineGUI extends JFrame{
         register("E1", "Pretzels", 1.45);
         register("E2", "Rice Krispies", 1.35);
         register("E3", "Cheese Crackers", 1.30);
-        register("E4", "Beff Jerky", 2.75);
+        register("E4", "Beef Jerky", 2.75);
         register("E5", "Iced Tea", 2.10);
 
         //Window 
         setTitle("Vending Machine");
         setSize(950, 900);
-        setDefaultcloseOperation(JFrame.Exit_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         //Top 
-        JPanel top = new Jpanel(new GridLayout(2, 1));
+        JPanel top = new JPanel(new GridLayout(2, 1));
 
         status = new JLabel("Insert Money");
         balance = new JLabel("Balance: $0.00");
@@ -83,11 +83,11 @@ public class VendingMachineGUI extends JFrame{
         top.add(status);
         top.add(balance);
 
-        add(top, BorderLayout.North);
+        add(top, BorderLayout.NORTH);
 
         //Cart 
-        cartArea = new JtextArea();
-        cartArea.seteditable(false);
+        cartArea = new JTextArea();
+        cartArea.setEditable(false);
         cartArea.setFont(new Font("Arial", Font.PLAIN, 14));
 
         JScrollPane scroll = new JScrollPane(cartArea);
@@ -97,6 +97,9 @@ public class VendingMachineGUI extends JFrame{
 
         //Center 
         JPanel center = new JPanel(new GridLayout(0, 1));
+
+        //Money panel
+        JPanel moneyPanel = new JPanel(new GridLayout(1, 2));
         moneyPanel.setBorder(BorderFactory.createTitledBorder("Money"));
 
         addMoney(moneyPanel, "$1.00", 1.00);
@@ -112,8 +115,8 @@ public class VendingMachineGUI extends JFrame{
         addMoney(moneyPanel, "$20 Bill" , 20.00);
 
         ///Items 
-        Jpanel itemPanel = new JPanel(new GridLayout(0, 2));
-        itemPanel.setBorder(BorderFactory.creatTitleBorder("Items"));
+        JPanel itemPanel = new JPanel(new GridLayout(0, 2));
+        itemPanel.setBorder(BorderFactory.createTitledBorder("Items"));
         
         for (String code : items.keySet()){
             addItemButton(itemPanel, code);
@@ -123,12 +126,18 @@ public class VendingMachineGUI extends JFrame{
         center.add(itemPanel);
 
         add(center, BorderLayout.CENTER);
+        
+        //Buttons
+
+        JButton buy = new JButton("BUY ALL");
+        buy.setBackground(Color.GREEN);
 
         //Buttons 
         JButton cancel = new JButton("CANCEL");
         cancel.setBackground(Color.RED);
 
         buy.addActionListener(e -> {
+
             double total = calculateTotal();
             double moneyTotal = getBalance();
 
@@ -174,7 +183,7 @@ public class VendingMachineGUI extends JFrame{
     }
 
     //Register
-    private void register(String coe, String name, double price) {
+    private void register(String code, String name, double price) {
         items.put(code, new Item(name, price));
     }
 
@@ -238,7 +247,7 @@ public class VendingMachineGUI extends JFrame{
 
     //total 
     private double calculateTotal(){
-        double totla = 0;
+        double total = 0;
         for (String code : cart){
             total += items.get(code).price;
         }
@@ -256,6 +265,6 @@ public class VendingMachineGUI extends JFrame{
     
     //UI 
     private void updateUI(){
-        balance.setText('Balance: $' + String.format("%.2f", getBalance()));
+        balance.setText("Balance: $" + String.format("%.2f", getBalance()));
     }
 }

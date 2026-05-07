@@ -13,7 +13,7 @@ public class ReadyState implements VendingState{
 
     @Override
     public void insert(Coin coin){
-        machine.addBalance(coint.getValue());
+        machine.addBalance(coin.getValue());
         machine.setMessage("Inserted: " + coin.getValue() + " | Balance: " + machine.getBalance()); 
     }
 
