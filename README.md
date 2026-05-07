@@ -31,13 +31,13 @@ before running the application, you must have the Java Development kit (JDK) 21 
 * Locate the dowloaded folder, right-click and select Extract All 
 ![alt text](image-2.png)
 
+
+Run all these commands in PowerShell in windows press the windows key and search up Powershell 
+
  2. Open PowerShell 
  Open PowerShell on your computer to begin the compilation process 
 
  3. run the following command (replace YouUserName with your acutal Windows username)
-
-
-Run all these commands in PowerShell in windows press the windows key and search up Powershell 
 
 1. cd"C:\Users\Yourusername\Downloads\Java-final-project-2026-main"
  
