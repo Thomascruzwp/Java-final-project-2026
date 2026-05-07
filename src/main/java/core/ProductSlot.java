@@ -1,4 +1,4 @@
-Package core;
+package core;
 
 public class ProductSlot{
     private int id;
